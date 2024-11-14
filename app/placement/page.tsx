@@ -1,7 +1,8 @@
 import React from "react";
 
+import PlacementTemplate from "../components/templates/PlacementTemplate";
 const page = () => {
-  return <div>page</div>;
+  return <PlacementTemplate />;
 };
 
 export default page;

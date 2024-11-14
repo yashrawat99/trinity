@@ -1,3 +1,9 @@
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
@@ -33,8 +39,23 @@ export default function RootLayout({
         <SidebarProvider>
           <AppSidebar />
           <main>
-            <SidebarTrigger />
-            {children}
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger>
+                  <SidebarTrigger />
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>CTRL+b to toggle menu</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+            <div
+              style={{
+                padding: 20,
+              }}
+            >
+              {children}
+            </div>
           </main>
         </SidebarProvider>
       </body>
